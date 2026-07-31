@@ -1,0 +1,111 @@
+# ============================================================
+#  Документация компании — конфигурация MkDocs
+#  Тема: Material for MkDocs
+#  Плагины: search, mkdocstrings, encryptcontent, tags
+# ============================================================
+
+site_name: Документация компании
+site_description: Внутренняя документация по проектам — техническая, вики и управленческая
+site_url: https://impossi8le.github.io/project-docs/
+
+repo_url: https://github.com/impossi8le/project-docs
+edit_uri: edit/main/docs/
+
+# --- Тема Material --------------------------------------------------
+theme:
+  name: material
+  language: ru
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-night
+        name: Переключить на тёмную тему
+    - scheme: slate
+      primary: indigo
+      accent: indigo
+      toggle:
+        icon: material/weather-sunny
+        name: Переключить на светлую тему
+  font:
+    text: Roboto
+    code: Roboto Mono
+  features:
+    - navigation.instant
+    - navigation.sections
+    - navigation.expand
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.tabs.link
+    - toc.follow
+
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/impossi8le
+  generator: false
+
+copyright: © 2026 Ваша компания. Внутренний документ.
+
+markdown_extensions:
+  - admonition
+  - abbr
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+      toc_depth: 3
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.details
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+plugins:
+  - search
+  - tags:
+      tags_file: tags.md
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          paths: [src]
+          options:
+            show_source: true
+            show_root_heading: true
+            show_if_no_docstring: false
+            heading_level: 2
+            members_order: source
+  - encryptcontent:
+      global_password: !ENV [DOCS_PASSWORD, ""]
+      title_prefix: "[Закрыто] "
+      summary: "Документ защищён паролем. Введите пароль для доступа."
+      remember_password: true
+
+nav:
+  - Главная: index.md
+  - Проекты:
+      - projects/index.md
+      - "Пример: CRM-платформа": projects/crm.md
+  - Техническая документация:
+      - reference/python/index.md
+      - "API (Python)": reference/python/example_pkg.md
+      - "API (TypeScript)": reference/typescript/example_ts.md
+  - Вики / база знаний:
+      - wiki/index.md
+      - "Регламент работы с документацией": wiki/working-agreement.md
+  - Теги: tags.md
