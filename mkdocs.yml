@@ -95,6 +95,7 @@ nav:
   - Главная: index.md
   - Проекты:
       - projects/index.md
+      - "VPN Telegram Bot": projects/vpn-bot.md
       - "Пример: CRM-платформа": projects/crm.md
   - Техническая документация:
       - reference/python/index.md
