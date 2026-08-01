@@ -96,6 +96,9 @@ nav:
   - Проекты:
       - projects/index.md
       - "VPN Telegram Bot": projects/vpn-bot.md
+      - "VPN Landing Site": projects/vpn-landing.md
+      - "Commuspace.ru": projects/commuspace.md
+      - "n8n LLM Stack": projects/n8n-llm-stack.md
       - "Пример: CRM-платформа": projects/crm.md
   - Техническая документация:
       - reference/python/index.md
@@ -106,4 +109,5 @@ nav:
       - wiki/index.md
       - "Регламент работы с документацией": wiki/working-agreement.md
       - "VPN Bot — база знаний": wiki/vpn-bot-knowledge.md
+      - "Архитектура и взаимосвязи": wiki/architecture-overview.md
   - Теги: tags.md
