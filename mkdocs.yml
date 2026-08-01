@@ -101,7 +101,9 @@ nav:
       - reference/python/index.md
       - "API (Python)": reference/python/example_pkg.md
       - "API (TypeScript)": reference/typescript/example_ts.md
+      - "VPN Bot — модули и API": reference/vpn-bot/index.md
   - Вики / база знаний:
       - wiki/index.md
       - "Регламент работы с документацией": wiki/working-agreement.md
+      - "VPN Bot — база знаний": wiki/vpn-bot-knowledge.md
   - Теги: tags.md
