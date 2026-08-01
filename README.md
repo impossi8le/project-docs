@@ -1,6 +1,6 @@
-# Документация компании (Docs-as-Code)
+# ИИ-документация компании (Docs-as-Code)
 
-Внутренняя документация по проектам: техническая, вики и управленческая. Собрана с помощью **MkDocs + Material**, автогенерация API из docstrings — **mkdocstrings**, доступ по ссылке с **общим паролем**.
+Внутренняя документация по проектам: техническая, вики и управленческая. Собрана с помощью **MkDocs + Material**, автогенерация API из docstrings — **mkdocstrings**. Доступ — открытая ссылка через GitHub Pages.
 
 ## Состав
 
@@ -14,47 +14,38 @@
 
 ```bash
 python -m venv .venv
-source .venv/bin/activate
+source .venv/bin/activate        # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 
-export DOCS_PASSWORD="dev-password"
-mkdocs serve
+mkdocs serve                      # http://localhost:8000
 ```
-
-Если пароль пустой — сайт открыт без пароля (для разработки).
 
 ## Автогенерация API из docstrings
 
-В `docs/reference/python/example_pkg.md` блок `::: example_pkg` строит страницу из docstrings пакета в `src/`.
+В `docs/reference/python/example_pkg.md` блок `::: example_pkg` автоматически строит страницу из docstrings пакета в `src/`. Пути к коду настраиваются в `mkdocs.yml`.
 
 ## Деплой на GitHub Pages
 
 1. Репозиторий: `https://github.com/impossi8le/project-docs`.
 2. В настройках репозитория: **Settings → Pages → Source: GitHub Actions**.
 3. При пуше в `main` GitHub Actions собирает сайт и выкладывает на `https://impossi8le.github.io/project-docs/`.
-4. Чтобы закрыть сайт паролем — задайте секрет `DOCS_PASSWORD`. Без секрета сайт открыт.
 
 ## MCP-сервер
 
-MCP-сервер позволяет управлять документацией из диалога с ИИ.
+MCP-сервер позволяет управлять документацией из диалога с ИИ: просматривать страницы, создавать проекты, добавлять в навигацию, собирать сайт. Подробнее — в `mcp_server/`.
 
-Запуск:
+Альтернативно, документацией можно управлять напрямую через **GitHub MCP** — создавать/редактировать файлы в репозитории через GitHub API.
 
-```bash
-python -m mcp_server.server
+## Структура
+
 ```
-
-Подключение в Claude Desktop:
-
-```json
-{
-  "mcpServers": {
-    "docs-mcp": {
-      "command": "python",
-      "args": ["<путь>/mcp_server/server.py"]
-    }
-  }
-}
+docs/
+├── index.md
+├── projects/          # Страницы проектов
+├── reference/         # Тех. документация (mkdocstrings)
+├── wiki/              # Вики / база знаний
+└── tags.md
+src/example_pkg/       # Пример кода с docstrings
+mcp_server/            # MCP-сервер
+.github/workflows/     # CI/CD
 ```
-
-Инструменты: `docs_list_projects`, `docs_list_pages`, `docs_read_page`, `docs_create_project_page`, `docs_write_page`, `docs_add_to_nav`, `docs_build`.

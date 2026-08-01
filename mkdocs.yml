@@ -1,10 +1,10 @@
 # ============================================================
-#  Документация компании — конфигурация MkDocs
+#  ИИ-документация компании — конфигурация MkDocs
 #  Тема: Material for MkDocs
-#  Плагины: search, mkdocstrings, encryptcontent, tags
+#  Плагины: search, mkdocstrings, tags
 # ============================================================
 
-site_name: Документация компании
+site_name: ИИ-документация компании
 site_description: Внутренняя документация по проектам — техническая, вики и управленческая
 site_url: https://impossi8le.github.io/project-docs/
 
@@ -90,11 +90,6 @@ plugins:
             show_if_no_docstring: false
             heading_level: 2
             members_order: source
-  - encryptcontent:
-      global_password: !ENV [DOCS_PASSWORD, ""]
-      title_prefix: "[Закрыто] "
-      summary: "Документ защищён паролем. Введите пароль для доступа."
-      remember_password: true
 
 nav:
   - Главная: index.md
