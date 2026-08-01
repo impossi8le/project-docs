@@ -4,7 +4,10 @@
 
 | Проект | Статус | Тех. документация | Вики | Ответственный |
 |--------|--------|-------------------|------|---------------|
-| VPN Telegram Bot | Эксплуатация | [Описание](vpn-bot.md) | — | Daniil |
+| VPN Telegram Bot | Эксплуатация | [Модули и API](../reference/vpn-bot/index.md) | [База знаний](../wiki/vpn-bot-knowledge.md) | Daniil |
+| VPN Landing Site | Эксплуатация | — | — | Daniil |
+| Commuspace.ru | Эксплуатация | — | — | Daniil |
+| n8n LLM Stack | Эксплуатация | — | — | Daniil |
 | CRM-платформа | В разработке | [API (Python)](../reference/python/example_pkg.md) | — | Иванов А. |
 | Мобильное приложение | Планирование | [API (TypeScript)](../reference/typescript/example_ts.md) | — | Петрова О. |
 | Внутренний портал | Эксплуатация | — | [Регламент](../wiki/working-agreement.md) | Сидоров Н. |
